@@ -3,14 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Interactive Map</title>
+    <title>Welcome to EUPA</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/assets/styles.css">
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
-    <div id="root"></div> <!-- React will mount your app here -->
+    <h1>Welcome to EUPA</h1>
+
+    <!-- Map Container -->
+    <div id="map" style="height: 500px; width: 100%;"></div>
+
+    <!-- Main JavaScript -->
+    <script type="module" src="/assets/index.js"></script>
+
+    <script>
+        // Initialize Leaflet map
+        document.addEventListener("DOMContentLoaded", function () {
+            var map = L.map('map').setView([53.5461, -113.4938], 12); // Edmonton coordinates
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+        });
+    </script>
 </body>
 </html>
-~
-~
-~
-~
-~
